@@ -11,7 +11,7 @@
    <div id="header">
     <div class="container">
         <nav>
-            <img src="images/logo2.png" class="logo">
+            <img src="images/logo.png" class="logo">
             <ul>
                 <li><a href="#header">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -23,6 +23,11 @@
         <div class="header-text">
             <p>Software Engineer</p>
             <h1>Hi, I'm <span>Vivek Singh</span><br> from Banda-UP</h1>
+            <!-- -------add hire me bottton -->
+            <br>
+            <div>
+            <a href="#contact" class="hire-button" id="hire-button">Hire Me</a>
+        </div>
         </div>
     </div>
    </div> 
@@ -78,19 +83,19 @@
             <div>
                 <i class="fa-solid fa-code"></i>
                 <h2>Full Stack Developer</h2>
-                <p>Developed a task manager application that helps users efficiently organize their daily tasks and improve productivity.</p>
+                <p>  develop a full-featured Twitter clone, offering users a platform for microblogging, social networking, and real-time communication. this cloning helps in tweet post and add comments.</p>
                 <a href="#">Learn more</a>
             </div>
             <div>
                 <i class="fa-solid fa-crop-simple"></i>
                 <h2>Web Application</h2>
-                <p>An application which can used for tweeting, commenting, and view tweets.</p>
+                <p>showcases my expertise in web development, where I transformed a client's vision into a fully functional, aesthetically pleasing website. where client can seen my portfolio an interact with me </p>
                 <a href="#">Learn more</a>
             </div>
             <div>
                 <i class="fa-brands fa-app-store"></i>
-                <h2>App Design</h2>
-                <p>Developed a task manager application that helps users efficiently organize their daily tasks and improve productivity.</p>
+                <h2>Game Design</h2>
+                <p>This project is a classic implementation of the Tic Tac Toe game, showcasing my programming skills in building a simple yet engaging two-player game.</p>
                 <a href="#">Learn more</a>
             </div>
 
@@ -152,16 +157,20 @@
             </div>
             <div class="contact-right">
                 <form name="submit-to-google-sheet">
-                   <input type="text" name="Name" placeholder="Your name" required>
-                   <input type="email" name="email" placeholder="Your email" required> 
-                   <textarea name="Message"  rows="6"  placeholder="Your message "></textarea>
-                   <button type="submit" class="btn btn2">submit</button>
+                   <input type="text" name="Name" placeholder="Your Name" required>
+                   <input type="email" name="Email" placeholder="Your Email" required> 
+                   <textarea name="Message"  rows="6"  placeholder="Your Message" required></textarea>
+                   <button type="Submit" class="btn btn2">Submit</button>
                 </form>
+                <span id="msg"></span>
+                
             </div>
         </div>
 
     </div>
 </div>
+
+
 
    <script>
     var tablinks = document.getElementsByClassName("tab-links");
@@ -180,17 +189,30 @@
 
 
 
-   </script>
-   <script>
-    const scriptURL = '<https://script.google.com/macros/s/AKfycbwaGxsj6q4H4-Ywi6BHw4FL_TCKSfyDl85dMFBzOPlaRGN85Y9bk72b88OqvxhBcqcBcQ/exec>'
+  
+</script>
+
+
+
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycby12xPg2ZtMdAfSm9HgPGfWihWZLLpB5ormBf5yci8zpFlYpSI3TcB1nkAhjAf0Gf4B/exec';
+
     const form = document.forms['submit-to-google-sheet']
+    const msg  =  document.getElementById("msg")
   
     form.addEventListener('submit', e => {
       e.preventDefault()
       fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-        .then(response => console.log('Success!', response))
+        .then(response => {
+            msg.innerHTML = "Message sent successfully"
+            setTimeout(function(){
+                msg.innerHTML = ""
+            }, 5000)
+            form.reset()
+        })
         .catch(error => console.error('Error!', error.message))
     })
   </script>
+
 </body>
 </html>

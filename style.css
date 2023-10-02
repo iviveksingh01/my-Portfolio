@@ -322,3 +322,29 @@ form btn2{
     margin-top: 20px;
     cursor: pointer;
 }
+/* Style for the Hire Me button */
+.hire-button {
+    display: inline-block;
+    background-color: #007bff; /* Change to your desired button color */
+    color: #fff; /* Text color */
+    padding: 10px 20px;
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+
+    /* Optional: Add a box shadow for depth */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover effect for the button */
+.hire-button:hover {
+    background-color: #0056b3; /* Change to a darker color on hover */
+    transform: scale(1.05);
+}
+#msg{
+color: #61b752;
+margin-top: -40px;
+display: block;
+}
